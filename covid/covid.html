@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="node_modules/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+        .card-header {
+            padding: 5px;
+        }
+
+        .card-body {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <!-- <div class="container">
+        <h1>Covid 19 Live Data</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Total Cases</th>
+                    <th>Total Deaths</th>
+                    <th>Total Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="data">
+
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="refreshData()" class="btn btn-danger btn-block">Refresh</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Country</th>
+                    <th>New </th>
+                </tr>
+            </thead>
+        </table>
+    </div> -->
+
+    <!-- top nav -->
+    <div class="container-fluid">
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="covid/img/mask.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                C<i class="fa fa-virus text-danger fa-spin"></i>vid Tracker
+            </a>
+            <div class="darkmode-switch">
+                <span>
+                    <i class="fa fa-moon"></i>
+                    <i class="fa fa-sun"></i>
+                </span>
+            </div>
+        </nav>
+    </div>
+    <!-- end top nav -->
+
+    <!-- main content -->
+    <div class="container-fluid">
+        <!-- country select -->
+        <div class="row m-0 p-0">
+            <div class="col-3">
+                <div class="country" id="country-select">
+                    <div class="country-select-toggle " id="country-select-toggle">
+                        <span>Global</span>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="country-select-list" id="country-select-list">
+                        <input type="text" placeholder="Search Coutry">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end country select -->
+
+        <!-- tracking information -->
+        <div class="row mt-2 ">
+            <div class="col-8">
+                <div class="row m-0">
+                    <!-- counter -->
+                    <div class="col-12 col-md-4 ">
+                        <div class="card box-hover">
+                            <div class="card-body count count-confirmed">
+                                <div class="count-icon">
+                                    <i class="fa fa-virus"></i>
+                                </div>
+                                <div class="count-info">
+                                    <h5 id="confirmed-total">123,456,789</h5>
+                                    <span>အတည်ပြုလူနာ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 ">
+                        <div class="card box-hover">
+                            <div class="card-body count count-recovered">
+                                <div class="count-icon">
+                                    <i class="fa fa-smile"></i>
+                                </div>
+                                <div class="count-info">
+                                    <h5 id="recovered-total">123,456,789</h5>
+                                    <span>ပြန်လည်သက်သာသူ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 ">
+                        <div class="card box-hover">
+                            <div class="card-body count count-deaths">
+                                <div class="count-icon">
+                                    <i class="fa fa-sad-tear"></i>
+                                </div>
+                                <div class="count-info">
+                                    <h5 id="deaths-total">123,456,789</h5>
+                                    <span>သေဆုံးသူ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end counter -->
+                </div>
+                <div class="mt-2 ">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                All times
+                            </div>
+                            <div class="card-body">
+                                <div class="" id="all-time-chart"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2 m-0 p-0">
+                    <!-- embed video -->
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                What is Covid 19
+                            </div>
+                            <div class="card-body">
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/who__KNN-PI"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                How to protect yourself
+                            </div>
+                            <div class="card-body">
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ki6_Uw7oG04"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end embed video -->
+                </div>
+
+
+            </div>
+
+            <!-- right content -->
+            <div class="col-4">
+                <!-- 30 days chart -->
+                <div class="card">
+                    <div class="card-header">
+                        Last 30 days
+                    </div>
+                    <div class="card-body">
+                        <div class="days-chart"></div>
+                    </div>
+                </div>
+                <!-- end 30 days chart -->
+
+                <!-- recovery rate chart -->
+                <div class="card mt-2">
+                    <div class="card-header">Recovery rate</div>
+                    <div class="card-body">
+                        <dvi class="recover-rate-chart"></dvi>
+                    </div>
+                </div>
+                <!-- end recover rate chart -->
+
+                <!-- top country rate chart -->
+                <div class="card mt-2">
+                    <div class="card-header">
+                        top countries affected
+                    </div>
+                    <div class="card-body">
+                        <table id="table-countries">
+                            <thead>
+                                <tr>
+                                    <th>Country</th>
+                                    <th>Confirmed</th>
+                                    <th>Recovered</th>
+                                    <th>Deaths</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end top country rate chart -->
+            </div>
+            <!-- end right content -->
+        </div>
+        <!-- end tracking information -->
+
+
+    </div>
+    <!-- end main content -->
+
+    <!-- footer -->
+    <div class="container-fluid mt-2">
+        <div class="footer">
+            Source from <a
+                href="https://documenter.getpostman.com/view/10808728/SzS8rjbc#27454960-ea1c-4b91-a0b6-0468bb4e6712"
+                target="_blank">api.covid19api.com</a>
+            <br>
+            Designed by <a href="">Aung Kyaw Htwe</a>
+        </div>
+        <!-- end footer -->
+
+        <!-- loader -->
+        <div class="loader">
+            <i class="fa fa-virus fa-spin"></i>
+        </div>
+
+    </div>
+    <!-- end loader -->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="js/fetchApi.js"></script>
+<script src="js/covidApi.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+
+
+
+    // init()
+    // function init() {
+    //     var url = "https://api.covid19api.com/summary";
+    //     var data = ''
+    //     $.get(url, function (data) {
+    //         console.log(data.Countries);
+    //         data = `
+    //         <td>${data}</td>
+    //         <td>${data.Global.TotalConfirmed}</td>
+    //         <td>${data.Global.TotalDeaths}</td>
+    //         <td>${data.Global.TotalRecovered}</td>
+    //         `
+    //         $("#data").html(data);
+
+
+    //     })
+    // }
+
+
+
+
+    // function clearData() {
+    //     $("#data").empty();
+    // }
+    // function refreshData() {
+    //     clearData();
+    //     init();
+    // }
+
+</script>
+
+</html>

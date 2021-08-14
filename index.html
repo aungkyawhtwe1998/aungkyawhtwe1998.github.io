@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<div class="loader-container" style="z-index: 2000 ;">
+    <div class="loader">Loading...</div>
+</div>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aung Kyaw Htwe (portfolio)</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Student Project for SWD 6" />
+    <!--    <meta name="keywords" content="mms, mms it, it service, best it service, php class, web developer, web class"/>-->
+    <meta name="author" content="MMS Developer Team" />
+
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="My Portfolio project for web design" />
+    <meta property="og:image" content="img/programmer.jpg" />
+    <meta property="og:url" content="https://aungkyawhtwe1998.github.io/" />
+    <meta property="og:site_name" content="Sutdent Porject" />
+    <meta property="og:description" content="" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/programmer.svg" />
+
+    <link rel="shortcut icon" href="img/my-logo.png">
+    <link rel="stylesheet" href="node_modules/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/animate_it/animate.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="node_modules/slick/slick.css">
+    <link rel="stylesheet" href="node_modules/slick/slick-theme.css">
+    <link rel="stylesheet" href="node_modules/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="app.css"> -->
+    <style>
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #040304;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 2000;
+        }
+
+        .loader {
+            color: #F68E13;
+            font-size: 90px;
+            text-indent: -9999em;
+            overflow: hidden;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            margin: 72px auto;
+            position: relative;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+            animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+        }
+
+        @-webkit-keyframes load6 {
+            0% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            5%,
+            95% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            10%,
+            59% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+            }
+
+            20% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+            }
+
+            38% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+            }
+
+            100% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+        }
+
+        @keyframes load6 {
+            0% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            5%,
+            95% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            10%,
+            59% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+            }
+
+            20% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+            }
+
+            38% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+            }
+
+            100% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+        }
+
+        @-webkit-keyframes round {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes round {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="container-fluid site-nav">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="#">
+                                <img src="img/programmer.svg" class="my-logo" alt="">
+                            </a>
+                            <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fa fa-bars menu-icon"></i>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#service">Sevices</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#about">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#blog">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#contact">Contact</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="container-fluid m-0 p-0" id="home">
+        <div class="row bg-img mx-0 p-0">
+            <div class="container-fluid overlay m0 p-0">
+                <div class="row mx-0 mx-lg-5 px-lg-5 my-4 pt-5 align-items-center flex-column-reverse flex-lg-row">
+                    <div class="col-12 col-md-8 col-lg-8 pt-lg-5">
+                        <div class="mt-sm-5 wow slideInLeft pt-3">
+                            <h1 class="text-secondary wow heartBeat animate__delay-1s">
+                                Aung Kyaw Htwe</h1>
+                            <h2 class="w-bold text-light mt-2">
+                                Web Developer</h2>
+                            <div class="divider my-4"></div>
+                            <p class="text-para text-light mt-2 content-2">
+                                I am freelancer of Website and Application Devlopment.... "Creative thinking and
+                                design idea are the main
+                                important for User experience."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 col-md-4 col-lg-4 mt-lg-5 pt-lg-5 ">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="img/my-profile.png" class="my-profile wow slideInRight" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="social-v wow slideInRight ani-delay-1">
+                    <a href="https://www.facebook.com/alex.akh1998/">
+                        <i class="fab fa-facebook-f text-secondary "></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aung-kyaw-htwe-851a48187/">
+                        <i class="fab fa-linkedin text-secondary "></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-instagram text-secondary "></i>
+                    </a>
+                    <a href="https://twitter.com/AlexAlexAKH">
+                        <i class="fab fa-twitter text-secondary"></i>
+                    </a>
+                </div>
+                <a class="scroll-to-next shadow animated fadeIn ani-delay-3" href="#service">
+                    <img src="img/mouse.svg" class="w-50 animated bounce"
+                        style="width: 15px ; animation-iteration-count: infinite" alt="">
+                </a>
+            </div>
+
+    </section>
+    <hr>
+
+    <section class="container" id="service">
+        <div class="row min-vh-100 align-items-center">
+            <div class="container ">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 text-center">
+                        <span class="text-title wow bounce">What do I offer?</span>
+                    </div>
+                    <div class="divider"></div>
+                </div>
+                <div class="row slide">
+                    <div class="col-12">
+                        <div class=" my-card shadow m-3 wow fadeIn ani-delay-1">
+                            <div class="">
+                                <img src="img/web-dev.svg" class="service-img  mb-2" alt="">
+                            </div>
+                            <div class="">
+                                <h4 class="text-secondary fw-bolder wow bounce">Website Development</h4>
+                                <p class="d-sm-block text-light fs-4">
+                                    Ecommerce, blog, portfolio,andmin dashboard website,
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class=" my-card shadow m-3 wow fadeIn ani-delay-2">
+                            <div class="">
+                                <img src="img/ui-ux.svg" class="service-img mb-2" alt="">
+                            </div>
+                            <div class="">
+                                <h4 class="text-secondary fw-bolder wow bounce">UI/UX Wireframe</h4>
+                                <p class="d-sm-block text-light fs-4">
+                                    Design website with creative thinking and good idea for User Experience.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class=" my-card shadow m-3 wow fadeIn ani-delay-3">
+                            <div class="">
+                                <img src="img/mobile-dev.svg" class="service-img mb-2" alt="">
+                            </div>
+                            <div class="">
+                                <h4 class="text-secondary fw-bolder wow bounce">Mobile App Development</h4>
+                                <p class="d-sm-block text-light fs-4">
+                                    Messagin app, travel app, health care app desining and development.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class=" col-12">
+                        <div class=" my-card shadow m-3">
+                            <div class="">
+                                <img src="img/photography.svg" class="service-img mb-2" alt="">
+                            </div>
+                            <div class="">
+                                <h4 class="text-secondary fw-bolder wow bounce">Photography</h4>
+                                <p class="d-sm-block text-light fs-4">
+                                    Travel, restaurant receipe, cafetarian advertisement, model magazine page
+                                </p>
+                            </div>
+                            <a href="photography.html">Check Website</a>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section class="container" id="about">
+        <div class="row min-vh-100 align-items-center">
+            <div class="container-fluid">
+                <div class="row align-items-center mt-5 p-3">
+                    <div class="col-12 col-lg-6">
+                        <img src="img/about-me.svg" class="w-100 rounded wow slideInLeft ani-delay-1" alt="">
+                    </div>
+                    <div class="col-12 col-lg-6 p-0 m-0">
+                        <div class="p-3 py-3 wow slideInRight ani-delay-1">
+                            <h1 class="fw-bold display-5 text-primary mt-2 text-title">
+                                Why do I become a Developer?</h1>
+                            <p class=" text-light fw-bold fs-5">
+                                I am an Information Technology Engineering student. I had done my academic project by
+                                software
+                                development. I am very passionated about software designing, developing. I would
+                                like to
+                                build an ecosystem including mobile app and website to give useful services to my
+                                customers.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section class="container" id="blog">
+        <div class="row min-vh-100">
+            <div class="container-fluid">
+                <div class="row my-5 pt-3 align-items-center justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="text-title wow bounce">My Experience</h2>
+                    </div>
+                    <div class="divider"></div>
+                </div>
+                <div class="row m-2">
+                    <div class="col-12 col-lg-6 col-md-6">
+                        <div class="card blog-card wow slideInLeft ani-delay-1">
+                            <div class="card-body p-2">
+                                <h4 class="text-secondary fw-bold">Web Development</h4>
+                                <div class="divider w-25 my-2"></div>
+                                <span class="text-light"><i class="fas fa-calendar text-secondary"></i> above 2
+                                    years
+                                    of Experience</span>
+                                <p class="text-light">Developing website using
+                                    HTML, CSS, Javascript, Jquery, Bootstrap, SASS, VueJS, PHP, Laravel and Mysql.</p>
+                                <span>
+                                    <i class="fab fa-html5 text-danger fa-2x"></i>
+                                    <i class="fab fa-css3 text-primary fa-2x"></i>
+                                    <i class="fab fa-bootstrap text-info fa-2x"></i>
+                                    <i class="fab fa-js text-warning fa-2x"></i>
+                                    <i class="fab fa-sass text-danger fa-2x"></i>
+                                    <i class="fab fa-vuejs text-success fa-2x"></i>
+                                    <i class="fab fa-php text-primary fa-2x"></i>
+                                    <i class="fab fa-laravel text-danger fa-2x"></i>
+                                    <i class="fas fa-database text-info fa-2x"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6">
+                        <div class="card blog-card wow slideInLeft ani-delay-1">
+                            <div class="card-body p-2">
+                                <h4 class="text-secondary fw-bold">Android App Development</h4>
+                                <div class="divider w-25 my-2"></div>
+                                <span class="text-light"><i class="fas fa-calendar text-secondary"></i> Above 2
+                                    years of Experience</span>
+                                <p class="text-light"> Real time Chatting app, Healthcare App, Social app by Java, XML
+                                    and
+                                    Firebase db </p>
+                                <span>
+                                    <i class="fab fa-java text-info fa-2x"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6">
+                        <div class="card blog-card wow slideInLeft ani-delay-1">
+                            <div class="card-body p-2">
+                                <h4 class="text-secondary fw-bold">Full Time Freelancer</h4>
+                                <div class="divider w-25 my-2"></div>
+                                <span class="text-light"><i class="fas fa-calendar text-secondary"></i> Above 2
+                                    years of Experience</span>
+                                <p class="text-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam
+                                    adipisci odio accusamus </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 col-md-6">
+                        <div class="card blog-card wow slideInLeft ani-delay-1">
+                            <div class="card-body p-2">
+                                <h4 class="text-secondary fw-bold">Some of My Projects</h4>
+                                <div class="divider w-25 my-2"></div>
+                                <span class="text-light"><i class="fas fa-calendar text-secondary"></i> About 1 month
+                                    for
+                                    each</span>
+                                <br>
+                                <i class="fas fa-check"></i><a href="https://www.youtube.com/watch?v=ZEThNKSFl6Y"
+                                    target="__blank">Diabetes Self Care (Group
+                                    Work)</a>
+                                <br>
+                                <i class="fas fa-check"></i><a href="photography.html" class=""
+                                    target="__blank"></i>Photographer Landing
+                                    Page</a>
+                                <br>
+                                <i class="fas fa-check"></i><a href="covid/covid.html" class=""
+                                    target="__blank"></i>Global Covid 19
+                                    Statistic</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+
+    <section class="container" id="contact">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row mt-5 pt-3 align-items-center justify-content-center">
+                    <div class="col-12 text-center">
+                        <span class="text-title wow bounce">Contact or suggest me</span>
+                    </div>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="row m-0 p-0">
+                    <div class="col-12 col-lg-6 wow slideInLeft ani-delay-1">
+                        <form action="#" class="my-card d-flex flex-column align-items-center">
+                            <div class="form-group mb-3">
+                                <input type="text" class="fomr-control my-input" placeholder="Enter your Email">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="text" class="fomr-control  my-input" placeholder="Enter your Name">
+                            </div>
+                            <div class="form-group mb-3">
+                                <textarea type="text" class="fomr-control my-input" rows="5"
+                                    placeholder="Comment"></textarea>
+                            </div>
+
+                            <div class="form-group justify-content-center align-items-center">
+                                <button class="btn border-3 text-light fw-bolder">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12 col-lg-6 ">
+                        <div class="my-card mt-4 wow p-3 slideInRight ani-delay-1">
+                            <iframe class=""
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3701.237767292931!2d96.12430261432397!3d21.925409011940438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb7273d6d0f81d%3A0x27d920dcc9b4b56d!2s52nd%20St%2C%20Mandalay%2C%20Myanmar%20(Burma)!5e0!3m2!1sen!2ssg!4v1621066874005!5m2!1sen!2ssg"
+                                width="100%" height="300px" style="border:0;" allowfullscreen=""
+                                loading="lazy"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <footer class="col-12 footer">
+                        <div class="container">
+                            <div class="row my-3 align-items-center justify-content-center ">
+                                <div class="col-12 col-lg-6 ">
+                                    <div class="text-center d-flex flex-column text mb-5">
+                                        <span class="fs-3 fw-bolder mb-3 fw-bolder">Contact</span>
+                                        <span>Aung Kyaw Htwe</span>
+                                        <span>No3,Between 51 & 52, 113 street, Mandalay</span>
+                                        <span>Phone: <a href="tel:09798802184" class="text">09798802184</a></span>
+                                        <span>Email: aungkyawhtwe.mdy49@gmail.com</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="d-flex flex-column text-center fs-5 text-secondary">
+                                        <span class="fs-3 fw-bolder fw-bolder">My Social Media platform</span>
+                                        <div class="social-icon p-5 d-flex justify-content-center mt-3">
+                                            <a href="https://www.facebook.com/alex.akh1998/">
+                                                <i class="mx-3 fab fa-facebook-f text-secondary fa-2x "></i>
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/aung-kyaw-htwe-851a48187/">
+                                                <i class="fab mx-3 fa-linkedin text-secondary fa-2x"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab mx-3 fa-instagram text-secondary fa-2x"></i>
+                                            </a>
+                                            <a href="https://twitter.com/AlexAlexAKH">
+                                                <i class="fab mx-3 fa-twitter text-secondary fa-2x"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="pb-5 fw-boler d-flex flex-column text-center fs-5">
+                                        <span class="text-white"> © Copyright Myanmar. All Right Reserved</span>
+                                        <span class="text-white"> Designed by<a href="#" class="text-light"> Aung Kyaw
+                                                Htwe</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="node_modules/js/jquery.js"></script>
+    <script src="node_modules/js/bootstrap.js"></script>
+    <script src="node_modules/slick/slick.min.js"></script>
+    <script src="node_modules/wow/wow.js"></script>
+    <script src="node_modules/way_point/jquery.waypoints.min.js"></script>
+    <script src="node_modules/js/app.js"></script>
+
+</body>
+
+</html>

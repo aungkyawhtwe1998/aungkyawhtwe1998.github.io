@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!-- <div class="loader-container" style="z-index: 2000 ;">
+    <div class="loader">Loading...</div>
+</div> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotographyInMySoul</title>
+    <link rel="icon" href="gallery/akh/akh portrait neon.png">
+    <!-- <link rel="stylesheet" href="vendor/fontawesome/css/all.css"> -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+
+    <link rel="shortcut icon" href="img/my-logo.png">
+    <link rel="stylesheet" type="text/css" href="node_modules/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/animate_it/animate.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/css/photo-style.css">
+    <style>
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index: 2000;
+        }
+
+        .loader {
+            color: #e2a41d;
+            font-size: 90px;
+            text-indent: -9999em;
+            overflow: hidden;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            margin: 72px auto;
+            position: relative;
+            -webkit-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+            animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+        }
+
+        @-webkit-keyframes load6 {
+            0% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            5%,
+            95% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            10%,
+            59% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+            }
+
+            20% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+            }
+
+            38% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+            }
+
+            100% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+        }
+
+        @keyframes load6 {
+            0% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            5%,
+            95% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+
+            10%,
+            59% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+            }
+
+            20% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+            }
+
+            38% {
+                box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+            }
+
+            100% {
+                box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+            }
+        }
+
+        @-webkit-keyframes round {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes round {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container-fluid site-nav animated slideInDown ">
+        <div class="row m-0 p-0">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-12 p0">
+                        <nav class="navbar pt-2 align-items-center d-flex navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="gallery/img/logo-neon.png" class="logo" alt="">
+                            </a>
+                            <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fas fa-bars text-black-50"></i>
+                            </button>
+
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" href="#home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" href="#record">Categories</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" href="#description">Review</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" href="#about">About</a>
+                                    </li>
+
+
+
+                                    <li class="nav-item">
+                                        <a class="nav-link text-uppercase" href="#subscribe">Subscribe</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container-fluid m-0 p-0" id="home">
+        <div class="row  home-background min-vh-100">
+            <div class="col-xs-12 overlay m-0 p-0">
+                <!-- <div class="myprofile" style="background-image: url('akh/profile.jpg');"></div> -->
+                <div class="title">
+                    <img class="wow slideInDown" src="gallery/img/logo-oringinal.png" width="200px" height="200px"
+                        alt="">
+                    <h1 class="font-weight-bold font-shadow wow slideInLeft">Aung Kyaw Htwe</h1>
+                    <h3 class="font-shadow wow slideInRight">Freelance Mobile Phone Photographer
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container-fluid" id="record">
+        <div class="row">
+            <div class="container py-5">
+                <div class="row mt-5">
+                    <div class="col-12 body-title wow slideInLeft">
+                        <span class="text-uppercase">My Latest Record</span>
+                    </div>
+                    <div class="divider wow slideInRight"></div>
+                </div>
+
+                <div class="row record-sliding mt-5 mb-3">
+                    <div class="col-12 ">
+                        <div class="card items">
+                            <div class="card-body p-0">
+                                <img src="gallery/img/Pagoda5.png" class="img-container" alt="">
+                                <div class="divider"></div>
+                                <p class="font-weight-bolder">This is the collection of Pagoda in Myanmar</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="card items">
+                            <div class="card-body p-0">
+                                <img src="gallery/img/flowers-3.png" class="img-container" alt="">
+                                <div class="divider"></div>
+                                <p style="padding: 10px;">This is the collection of tropical Vibes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="card items">
+                            <div class="card-body p-0">
+                                <img src="gallery/img/UbaneBridge .png" class="img-container" alt="">
+                                <div class="divider"></div>
+                                <p style="padding: 10px;">This is the collection of Mandalay Sightseeing
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card items">
+                            <div class="card-body p-0">
+                                <img src="gallery/img/flowers-5.png" class="img-container" alt="">
+                                <div class="divider"></div>
+                                <p style="padding: 10px;">This is th Collection of Macro Photography
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid bg-container" id="description">
+        <div class="row min-vh-100">
+            <div class="container">
+                <div class="row my-5 justify-content-center">
+                    <div class="col-lg-12 col-xs-12">
+                        <h3 class="body-title wow slideInLeft">About this photo</h3>
+                        <div class="mt-4 divider wow slideInRight"></div>
+                        <br>
+                    </div>
+                    <div class="col-lg-6 col-xs-12">
+                        <img src="gallery/img/flowers-2.jpg" class="mb-3 profile wow slideInLeft" alt="">
+                    </div>
+
+                    <div class="col-lg-6 col-xs-12 about-me wow slideInRight">
+
+                        <p class="">I took this photo in front of my house. In Myanmar, this flower is called as Paper
+                            Flower.
+                            This type of plant have money colors. This color is red magenta.
+                            I have a hobby that is to take a flower or plant species that can found in Myanmar. I
+                            took a
+                            lot of macro photo of the plants when I travel or hiking in some plaeces of Myanmar. In
+                            Myanmar there are alot of forest and mountains. One of my dream is to travel all the
+                            forests
+                            and mountain in Myanmar and oversea. I want to take alot of plant species in these
+                            places.I
+                            like green nature and want to prolmote environmental careness especially climate change
+                            in
+                            Myanmr with my photography.
+                        </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="about">
+        <div class="row min-vh-100 my-5">
+            <div class="contariner-fluid">
+                <div class="row my-5 py-5">
+                    <div class="col-12">
+                        <h3 class="body-title wow slideInLeft">About Me</h3>
+                        <div class="divider wow slideInRight"></div>
+                        <br>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6  about-me wow bounceIn">
+                        <p>My name is Aung Kyaw Htwe. I am a freelence mobile phone photographer in Mandalay. I take
+                            every
+                            photo
+                            that appear in my soul. I want to travel around the world and ate a lot of amazing photo
+                            with
+                            phone
+                            only. I want to study mobile phone photography rules and techniques more and more. One
+                            day I
+                            will be
+                            a professional mobile phone photographer. . . . . .</p>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 wow bounceIn">
+                        <img src="gallery/img/profile.jpg" class="profile wow bounceIn" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <section class="container-fluid bg-container" id="subscribe">
+        <div class="row min-vh-100">
+            <div class="container-fluid">
+                <div class="row py-5 mb-5">
+                    <div class="col-xs-12 col-lg-12 mt-5 subscribe-info">
+                        <span class="body-title wow flash text-uppercase"> Subscribe Me</span> <br>
+                        <span class="body-title wow flash">Signup Your Account Here!</span>
+                    </div>
+                    <div class="col-xs-12 col-lg-12 mt-5 subscribe-info">
+                        <input type="email" class="input-box wow bounceIn" placeholder="Enter your email"><br>
+                        <button class="button wow bounceIn"><span>Login</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 footer">
+                        <div class="row">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-6 foot-left wow bounceIn">
+                                        <div class="social-icon">
+                                            <a style="text-decoration: none;"
+                                                href="https://www.facebook.com/photographyinmysoul"><i
+                                                    class="text-black-50 fab fa-facebook text-dark"></i></a>
+                                        </div>
+                                        <div class="social-icon">
+                                            <a style="text-decoration: none;"
+                                                href="https://www.instagram.com/4tographyinmysoul/"><i
+                                                    class="text-black-50 fab fa-instagram"></i></a>
+                                        </div>
+                                        <div class="social-icon">
+                                            <a style="text-decoration: none;" href="tel:09798802184"><i
+                                                    class="text-black-50 fas fa-phone"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12  col-md-6 col-lg-6  foot-left wow animate__bounceIn">
+                                        <img src="gallery/img/logo-neon.png" class="logo" alt="">
+                                        <span style="font-weight: bolder;">Copyright 2021</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </section>
+
+    <script src="node_modules/js/jquery.js"></script>
+    <script src="node_modules/js/bootstrap.js"></script>
+    <script src="node_modules/slick/slick.min.js"></script>
+    <script src="node_modules/wow/wow.js"></script>
+    <script src="node_modules/way_point/jquery.waypoints.min.js"></script>
+    <script src="node_modules/js/photo-app.js"></script>
+    </script>
+</body>
+
+</html>
