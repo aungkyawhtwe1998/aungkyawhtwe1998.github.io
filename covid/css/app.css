@@ -101,6 +101,13 @@ body {
     display: none;
 }
 
+.footer {
+    color: var(--color-txt);
+}
+a{
+    color: var(--color-txt);
+}
+
 .card {
     background-color: var(--bg-content) !important;
     border: none !important;
