@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="shortcut icon" href="img/mask.svg" type="image/png">
     <link rel="stylesheet" href="node_modules/css/bootstrap.css">
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" href="css/app.css">
@@ -22,71 +23,49 @@
 </head>
 
 <body class="loading">
-    <!-- <div class="container">
-        <h1>Covid 19 Live Data</h1>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Total Cases</th>
-                    <th>Total Deaths</th>
-                    <th>Total Recovered</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="data">
-
-                </tr>
-            </tbody>
-        </table>
-
-        <button onclick="refreshData()" class="btn btn-danger btn-block">Refresh</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Country</th>
-                    <th>New </th>
-                </tr>
-            </thead>
-        </table>
-    </div> -->
-
     <!-- top nav -->
-    <div class="container-fluid">
-        <!-- Image and text -->
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-                <img src="img/mask.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-                C<i class="fa fa-virus text-danger fa-spin"></i>vid Tracker
-            </a>
-            <div class="darkmode-switch">
-                <span>
-                    <i class="fa fa-moon"></i>
-                    <i class="fa fa-sun"></i>
-                </span>
-            </div>
-        </nav>
-    </div>
-    <!-- end top nav -->
-
-    <!-- main content -->
-    <div class="container-fluid">
-        <!-- country select -->
-        <div class="row m-0 p-0">
-            <div class="col-3">
-                <div class="country" id="country-select">
-                    <div class="country-select-toggle " id="country-select-toggle">
-                        <span>Global</span>
-                        <i class="fa fa-angle-down"></i>
-                    </div>
-                    <div class="country-select-list" id="country-select-list">
-                        <input type="text" placeholder="Search Coutry">
+    <header class="container-fluid">
+        <div class="row mb-5">
+            <div class="nav-wrapper">
+                <div class="nav">
+                    <a class="logo" href="#">
+                        <!-- <img src="img/mask.svg" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+                        C<i class="fa fa-virus text-danger fa-spin"></i>vid Tracker
+                    </a>
+                    <div class="darkmode-switch" id="darkmode-switch">
+                        <span>
+                            <i class="fa fa-moon"></i>
+                            <i class="fa fa-sun"></i>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- end country select -->
+    </header>
+    <!-- end top nav -->
+
+    <!-- main content -->
+    <section class="container-fluid">
+        <!-- country select -->
+        <div class="row mt-5 pt-5">
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="country-select" id="country-select">
+                            <div class="country-select-toggle " id="country-select-toggle">
+                                <span>Global</span>
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <div class="country-select-list" id="country-select-list">
+                                <input type="text" placeholder="Search Coutry">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end country select --> 
 
         <!-- tracking information -->
         <div class="row mt-2 ">
@@ -147,15 +126,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-2 m-0 p-0">
+                <div class="">
                     <!-- embed video -->
-                    <div class="col-12 col-md-6">
-                        <div class="card">
+                    <div class="col-12">
+                        <div class="card ">
                             <div class="card-header">
                                 What is Covid 19
                             </div>
                             <div class="card-body">
-                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/who__KNN-PI"
+                                <iframe width="100%" height="350" src="https://www.youtube.com/embed/who__KNN-PI"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
@@ -164,13 +143,13 @@
 
                     </div>
 
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 How to protect yourself
                             </div>
                             <div class="card-body">
-                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/ki6_Uw7oG04"
+                                <iframe width="100%" height="350" src="https://www.youtube.com/embed/ki6_Uw7oG04"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
@@ -201,7 +180,7 @@
                 <div class="card mt-2">
                     <div class="card-header">Recovery rate</div>
                     <div class="card-body">
-                        <dvi class="recover-rate-chart"></dvi>
+                        <dvi id="recovery-rate-chart"></dvi>
                     </div>
                 </div>
                 <!-- end recover rate chart -->
@@ -237,12 +216,11 @@
         </div>
         <!-- end tracking information -->
 
-
-    </div>
+    </section>
     <!-- end main content -->
 
     <!-- footer -->
-    <div class="container-fluid mt-2">
+    <section class="container-fluid mt-2 rounded">
         <div class="footer">
             Source from <a
                 href="https://documenter.getpostman.com/view/10808728/SzS8rjbc#27454960-ea1c-4b91-a0b6-0468bb4e6712"
@@ -257,7 +235,7 @@
             <i class="fa fa-virus fa-spin"></i>
         </div>
 
-    </div>
+    </section>
     <!-- end loader -->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -265,40 +243,5 @@
 <script src="js/fetchApi.js"></script>
 <script src="js/covidApi.js"></script>
 <script src="js/app.js"></script>
-
-<script>
-
-
-
-    // init()
-    // function init() {
-    //     var url = "https://api.covid19api.com/summary";
-    //     var data = ''
-    //     $.get(url, function (data) {
-    //         console.log(data.Countries);
-    //         data = `
-    //         <td>${data}</td>
-    //         <td>${data.Global.TotalConfirmed}</td>
-    //         <td>${data.Global.TotalDeaths}</td>
-    //         <td>${data.Global.TotalRecovered}</td>
-    //         `
-    //         $("#data").html(data);
-
-
-    //     })
-    // }
-
-
-
-
-    // function clearData() {
-    //     $("#data").empty();
-    // }
-    // function refreshData() {
-    //     clearData();
-    //     init();
-    // }
-
-</script>
 
 </html>

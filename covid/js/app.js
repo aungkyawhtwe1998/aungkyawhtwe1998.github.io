@@ -12,14 +12,15 @@ const CASE_STATUS = {
 
 let body = document.querySelector("body");
 let countries_list;
-let all_time_chart, days_chart, recover_rate_chart;
+let all_time_chart, days_chart, recovery_rate_chart;
 
 window.onload = async () => {
   console.log("ready ... ");
   //only init chart on page load first time
+  initTheme();
   await initAllTimesChart();
   await initDaysChart();
-
+  await initRecoveryRate();
   await loadData("Global");
 };
 
@@ -76,6 +77,12 @@ loadSummary = async (country) => {
   showRecoveredTotal(summary.TotalRecovered);
   showDeathsTotal(summary.TotalDeaths);
 
+  //load recovery rate
+  await loadRecoveryRate(
+    console.log(
+      Math.floor((summary.TotalRecovered / summary.TotalConfirmed) * 100)
+    )
+  );
   //load countries table
 
   let casesByCountries = summaryData.Countries.sort(
@@ -309,3 +316,51 @@ loadDaysChart = async (country) => {
     },
   });
 };
+
+initRecoveryRate = async () => {
+  let options = {
+    chart: {
+      type: "radiaBar",
+      height: "350",
+    },
+    series: [],
+    labels: ["Recovery rate"],
+    colors: [COLORS.recovered],
+  };
+
+  recovery_rate_chart = new ApexCharts(
+    document.querySelector("#recovery-rate-chart"),
+    options
+  );
+
+  recovery_rate_chart.render();
+};
+
+loadRecoveryRate = async (rate) => {
+  //use updateSeries
+  recovery_rate_chart.updateSeries([rate]);
+};
+
+//dark mode switch
+
+initTheme = () => {
+  let dark_mode_switch = document.querySelector("#darkmode-switch");
+  dark_mode_switch.onclick = () => {
+    dark_mode_switch.classList.toggle("dark");
+    body.classList.toggle("dark");
+    setDarkChart(body.classList.contains('dark'))
+  };
+};
+
+
+setDarkChart = (dark) =>{
+  let theme = {
+    theme:{
+      mode : dark ? 'dark':'light'
+    }
+  }
+  all_time_chart.updateOptions(theme)
+  days_chart.updateOptions(theme)
+  recovery_rate_chart.updateOptions(theme)
+
+}
