@@ -136,6 +136,9 @@ body {
 }
 
 .country-select {
+    border-radius: 1.2rem;
+    background-color: var(--bg-content);
+    padding: 15px;
     position: relative;
 }
 
@@ -150,6 +153,10 @@ body {
     position: relative;
 }
 
+.country-select:hover {
+    box-shadow: rgb(0 0 0 /10%) 0px 15px 30px;
+}
+
 .country-select-list {
     position: absolute;
     top: calc(100% + 50px);
@@ -159,7 +166,7 @@ body {
     overflow: scroll;
     padding: 15px;
     background-color: var(--bg-content);
-    z-index: 98;
+    z-index: 1000;
     box-shadow: var(--shadow);
     border-radius: 10px;
     visibility: hidden;

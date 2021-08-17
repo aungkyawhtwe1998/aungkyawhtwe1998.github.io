@@ -18,10 +18,16 @@ window.onload = async () => {
   console.log("ready ... ");
   //only init chart on page load first time
   initTheme();
+  initCountryFilter();
   await initAllTimesChart();
   await initDaysChart();
   await initRecoveryRate();
   await loadData("Global");
+  await loadCountrySelectList();
+
+  document.querySelector("#country-select-toggle").onclick = () => {
+    document.querySelector("#country-select-list").classList.toggle("active");
+  };
 };
 
 loadData = async (country) => {
@@ -70,7 +76,7 @@ loadSummary = async (country) => {
   // console.log(summaryData.Countries);
   let summary = summaryData.Global;
   if (!isGlobal(country)) {
-    summary = summaryData.Countries.filters((e) => e.Slug === country[0]);
+    summary = summaryData.Countries.filter((e) => e.Slug === country)[0];
   }
   // console.log(summaryData);
   showConfirmedTotal(summary.TotalConfirmed);
@@ -348,19 +354,60 @@ initTheme = () => {
   dark_mode_switch.onclick = () => {
     dark_mode_switch.classList.toggle("dark");
     body.classList.toggle("dark");
-    setDarkChart(body.classList.contains('dark'))
+    setDarkChart(body.classList.contains("dark"));
   };
 };
 
-
-setDarkChart = (dark) =>{
+setDarkChart = (dark) => {
   let theme = {
-    theme:{
-      mode : dark ? 'dark':'light'
-    }
-  }
-  all_time_chart.updateOptions(theme)
-  days_chart.updateOptions(theme)
-  recovery_rate_chart.updateOptions(theme)
+    theme: {
+      mode: dark ? "dark" : "light",
+    },
+  };
+  all_time_chart.updateOptions(theme);
+  days_chart.updateOptions(theme);
+  recovery_rate_chart.updateOptions(theme);
+};
 
-}
+renderCountrySelectList = (list) => {
+  let country_select_list = document.querySelector("#country-select-list");
+  country_select_list.querySelectorAll("div").forEach((e) => e.remove());
+  list.forEach((e) => {
+    let item = document.createElement("div");
+    item.classList.add("country-item");
+    item.classList.add("country-item");
+    item.textContent = e.Country;
+    item.onclick = async () => {
+      document.querySelector("#country-select span").textContent = e.Country;
+      country_select_list.classList.toggle("active");
+      await loadData(e.Slug);
+    };
+    country_select_list.appendChild(item);
+  });
+};
+
+loadCountrySelectList = async () => {
+  let summaryData = await covidApi.getSummary();
+  countries_list = summaryData.Countries;
+  let country_select_list = document.querySelector("#country-select-list");
+  let item = document.createElement("div");
+  item.classList.add("country-item");
+  item.textContent = "Global";
+  item.onclick = async () => {
+    document.querySelector("#country-select span").textContent = "Global";
+    country_select_list.classList.toggle("active");
+    await loadData("Global");
+  };
+  country_select_list.appendChild(item);
+  renderCountrySelectList(countries_list);
+};
+
+initCountryFilter = () => {
+  let input = document.querySelector("#country-select-list input");
+  input.onkeyup = () => {
+    let filtered = countries_list.filter((e) =>
+      e.Country.toLowerCase().includes(input.value)
+    );
+    renderCountrySelectList(filtered);
+  };
+};
