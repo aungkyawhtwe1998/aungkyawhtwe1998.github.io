@@ -16,14 +16,23 @@ let all_time_chart, days_chart, recover_rate_chart;
 
 window.onload = async () => {
   console.log("ready ... ");
+  //only init chart on page load first time
+  await initAllTimesChart();
+  await initDaysChart();
+
   await loadData("Global");
 };
 
 loadData = async (country) => {
+  console.log("country ......");
+  console.log(country);
   startLoading();
-  await initAllTimesChart();
+
   await loadSummary(country);
+
   await loadAllTimeChart(country);
+
+  await loadDaysChart(country);
   endLoading();
 };
 
@@ -57,6 +66,7 @@ showDeathsTotal = (total) => {
 loadSummary = async (country) => {
   //country =Myanmar
   let summaryData = await covidApi.getSummary();
+  // console.log(summaryData.Countries);
   let summary = summaryData.Global;
   if (!isGlobal(country)) {
     summary = summaryData.Countries.filters((e) => e.Slug === country[0]);
@@ -79,7 +89,6 @@ loadSummary = async (country) => {
         <tr>
             <td>${numberWithCommas(casesByCountries[i].Country)}</td>
             <td>${numberWithCommas(casesByCountries[i].TotalConfirmed)}</td>
-            <td>${numberWithCommas(casesByCountries[i].TotalRecovered)}</td>
             <td>${numberWithCommas(casesByCountries[i].TotalDeaths)}</td>     
         </tr>
         `;
@@ -121,6 +130,7 @@ renderData = (country_data) => {
   country_data.forEach((e) => {
     res.push(e.Cases);
   });
+  console.log(`res: ${res}`);
   return res;
 };
 
@@ -130,6 +140,7 @@ renderWorldData = (world_data, status) => {
     switch (status) {
       case CASE_STATUS.confirmed:
         res.push(e.TotalConfirmed);
+        // console.log(res);
         break;
       case CASE_STATUS.recovered:
         res.push(e.TotalRecovered);
@@ -139,64 +150,162 @@ renderWorldData = (world_data, status) => {
         break;
     }
   });
+  console.log(res);
   return res;
 };
 
 loadAllTimeChart = async (country) => {
   let labels = [];
-  let confirmed_data, recovered_data, deaths_data;
+
+  let confirm_data, recovered_data, deaths_data;
+
   if (isGlobal(country)) {
     let world_data = await covidApi.getWorldAllTimeCases();
+
     world_data.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
     world_data.forEach((e) => {
       let d = new Date(e.Date);
-      labels.push(`${d.getFullYear()}- ${d.getMonth() + 1} -${d.getDate()}}`);
+      labels.push(`${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`);
     });
+
     confirm_data = renderWorldData(world_data, CASE_STATUS.confirmed);
     recovered_data = renderWorldData(world_data, CASE_STATUS.recovered);
     deaths_data = renderWorldData(world_data, CASE_STATUS.deaths);
-    // console.log(world_data);
   } else {
-    let confirmed = await covidApi.getCountryAllTimesCases(
+    let confirmed = await covidApi.getCountryAllTimeCases(
       country,
       CASE_STATUS.confirmed
     );
-    let recovered = await covidApi.getCountryAllTimesCases(
+    let recovered = await covidApi.getCountryAllTimeCases(
       country,
       CASE_STATUS.recovered
     );
-    let deaths = await covidApi.getCountryAllTimesCases(
+    let deaths = await covidApi.getCountryAllTimeCases(
       country,
-      CASE_STATUS.recovered
+      CASE_STATUS.deaths
     );
-    confirmed_data = renderDate(confirmed);
-    recovered_data = renderDate(recovered);
-    deaths_data = renderDate(deaths);
+
+    confirm_data = renderData(confirmed);
+    recovered_data = renderData(recovered);
+    deaths_data = renderData(deaths);
 
     confirmed.forEach((e) => {
       let d = new Date(e.Date);
-      labels.push(`${d.getFullYear()}-${d.getMonth() + 1} - ${d.getDate()}`);
-    });
-
-    let series = [
-      {
-        name: "Confirmed",
-        data: confirmed_data,
-      },
-      {
-        name: "Recovered",
-        data: recovered_data,
-      },
-      {
-        name: "Deaths",
-        data: deaths_data,
-      },
-    ];
-    all_time_chart.updateOptions({
-      series: series,
-      xaxis: {
-        categories: labels,
-      },
+      labels.push(`${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`);
     });
   }
+
+  let series = [
+    {
+      name: "Confirmed",
+      data: confirm_data,
+    },
+    {
+      name: "Recovered",
+      data: recovered_data,
+    },
+    {
+      name: "Deaths",
+      data: deaths_data,
+    },
+  ];
+
+  all_time_chart.updateOptions({
+    series: series,
+    xaxis: {
+      categories: labels,
+    },
+  });
+};
+
+initDaysChart = async () => {
+  let options = {
+    chart: {
+      type: "line",
+    },
+    colors: [COLORS.confirmed, COLORS.recovered, COLORS.deaths],
+    series: [],
+    xaxis: {
+      categories: [],
+      labels: {
+        show: false,
+      },
+    },
+    grid: {
+      show: false,
+    },
+    stroke: {
+      curve: "smooth",
+    },
+  };
+
+  days_chart = new ApexCharts(document.querySelector("#days-chart"), options);
+
+  days_chart.render();
+};
+
+loadDaysChart = async (country) => {
+  let labels = [];
+
+  let confirm_data, recovered_data, deaths_data;
+
+  if (isGlobal(country)) {
+    let world_data = await covidApi.getWorldDaysCases();
+
+    world_data.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
+    world_data.forEach((e) => {
+      let d = new Date(e.Date);
+      labels.push(`${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`);
+    });
+
+    confirm_data = renderWorldData(world_data, CASE_STATUS.confirmed);
+    recovered_data = renderWorldData(world_data, CASE_STATUS.recovered);
+    deaths_data = renderWorldData(world_data, CASE_STATUS.deaths);
+  } else {
+    let confirmed = await covidApi.getCountryDaysCases(
+      country,
+      CASE_STATUS.confirmed
+    );
+    let recovered = await covidApi.getCountryDaysCases(
+      country,
+      CASE_STATUS.recovered
+    );
+    let deaths = await covidApi.getCountryDaysCases(
+      country,
+      CASE_STATUS.deaths
+    );
+
+    confirm_data = renderData(confirmed);
+    recovered_data = renderData(recovered);
+    deaths_data = renderData(deaths);
+
+    confirmed.forEach((e) => {
+      let d = new Date(e.Date);
+      labels.push(`${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`);
+    });
+  }
+
+  let series = [
+    {
+      name: "Confirmed",
+      data: confirm_data,
+    },
+    {
+      name: "Recovered",
+      data: recovered_data,
+    },
+    {
+      name: "Deaths",
+      data: deaths_data,
+    },
+  ];
+
+  days_chart.updateOptions({
+    series: series,
+    xaxis: {
+      categories: labels,
+    },
+  });
 };

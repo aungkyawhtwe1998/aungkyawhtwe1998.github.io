@@ -20,6 +20,7 @@ const covidApi = {
   },
 };
 
+
 const covid_api_base = "https://api.covid19api.com/";
 
 const covidApiEndPoints = {
@@ -54,9 +55,9 @@ getDaysRange = (days) => {
   let d = new Date();
 
   let from_d = new Date(d.getTime() - days * 24 * 60 * 60 * 1000);
-
+  console.log(from_d)
   let to_date = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-
+  console.log(to_date)
   let from_date = `${from_d.getFullYear()}-${
     from_d.getMonth() + 1
   }-${from_d.getDate()}`;
@@ -66,6 +67,7 @@ getDaysRange = (days) => {
     end_date: to_date,
   };
 };
+
 
 getApiPath = (end_point) => {
   return covid_api_base + end_point;

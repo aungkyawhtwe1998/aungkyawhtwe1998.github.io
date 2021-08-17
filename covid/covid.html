@@ -57,7 +57,7 @@
         <!-- Image and text -->
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="covid/img/mask.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="img/mask.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 C<i class="fa fa-virus text-danger fa-spin"></i>vid Tracker
             </a>
             <div class="darkmode-switch">
@@ -90,7 +90,7 @@
 
         <!-- tracking information -->
         <div class="row mt-2 ">
-            <div class="col-8">
+            <div class="col-12 col-md-8">
                 <div class="row m-0">
                     <!-- counter -->
                     <div class="col-12 col-md-4 ">
@@ -185,14 +185,14 @@
             </div>
 
             <!-- right content -->
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <!-- 30 days chart -->
                 <div class="card">
                     <div class="card-header">
                         Last 30 days
                     </div>
                     <div class="card-body">
-                        <div class="days-chart"></div>
+                        <div id="days-chart"></div>
                     </div>
                 </div>
                 <!-- end 30 days chart -->
@@ -212,12 +212,11 @@
                         top countries affected
                     </div>
                     <div class="card-body">
-                        <table id="table-countries">
+                        <table class="table table-hover table-border" id="table-countries">
                             <thead>
                                 <tr>
                                     <th>Country</th>
                                     <th>Confirmed</th>
-                                    <th>Recovered</th>
                                     <th>Deaths</th>
                                 </tr>
                             </thead>
