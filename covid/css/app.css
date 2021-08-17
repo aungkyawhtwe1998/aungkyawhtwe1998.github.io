@@ -12,6 +12,7 @@
     --bg-content: #242526;
     --bg-hover: #dcdcdc;
     --color-txt: #f4f4f4;
+    --bg-hover: #868687ad;
 }
 
 * {
@@ -191,12 +192,14 @@ body {
 }
 
 .country-item {
-    
     padding: 5px 15px;
     cursor: pointer;
 }
 
 .country-item:hover {
+    margin-top: 5px;
+    border-radius: 1.25rem;
+    color: var(--color-txt);
     background-color: var(--bg-hover);
 }
 
