@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="shortcut icon" href="../img/ui-ux.svg">
+
+    <!-- <link rel="stylesheet" href="../vendor/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="../dist/css/main.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar rounded navbar-expand-lg navbar-light">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#">Navbar</a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.html">Home</a>
+                                        </li>
+                                        <li class="nav-item active">
+                                            <a class="nav-link" aria-current="page" href="#">shop</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <div class="p-1">
+                            <div class="row searchbar">
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="d-flex m-2 justify-content-between">
+                                        <div class="">
+                                            <h4 class="text-success">Shopify</h4>
+                                            <small>Best Ecommerce platform for you</small>
+                                        </div>
+                                        <button class="btn btn-outline-primary d-block d-lg-none"><i
+                                                class="fas fa-shopping-basket"></i></button>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="row">
+                                        <div class="col mr-2">
+                                            <input type="text" id="search" class="form-control rounded"
+                                                placeholder="search item">
+                                        </div>
+                                        <div class="col">
+                                            <select name="" id="category" class="form-select rounded">
+                                                <option value="0">All Category</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="products" class="p-3 row"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-lg-block d-none">
+                        <div class="row rounded vh-100 mt-3">
+                            <div class="d-flex justify-content-between align-item-end mt-3 mb-3">
+                                <div class="">
+                                    <h4 class="text-success mb-0">My Cart</h4>
+                                    <small class="text-black-50">Added items</small>
+                                </div>
+                                <div class="">
+                                    <h4>
+                                        <span class="item-in-cart-count">0</span>
+                                        <i class="fas fa-shopping-cart text-success"></i>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div id="cart">
+
+                            </div>
+                            <div class="total  position-sticky py-1" style="bottom: 0;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/js/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js  "></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
