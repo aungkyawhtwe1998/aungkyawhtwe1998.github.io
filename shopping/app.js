@@ -52,6 +52,7 @@ function cartTotal() {
                   totalCost
                 ).toFixed(2)}</span></h4>
             </div>
+            
             `);
   } else {
     $(".total").html("empty items");

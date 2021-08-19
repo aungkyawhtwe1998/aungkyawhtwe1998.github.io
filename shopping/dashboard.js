@@ -9,3 +9,10 @@ $(".hide-side-bar").click(function () {
     marginLeft: "-100%",
   });
 });
+
+$(".btn-payment").click(function () {
+  console.log("close");
+  $(".sidebar").animate({
+    marginLeft: "-100%",
+  });
+});
