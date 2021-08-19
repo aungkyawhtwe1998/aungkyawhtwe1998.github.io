@@ -46,13 +46,13 @@ function cartTotal() {
       .map((el) => el.innerHTML)
       .reduce((x, y) => Number(x) + Number(y));
     $(".total").html(`
-            <div class="d-flex searchbar justify-content-between font-weight-bold p-3">
+            <div class="d-flex justify-content-between font-weight-bold p-3">
                 <h4 class="">Total</h4>
                 <h4>$<span class="cart-cost-total">${parseFloat(
                   totalCost
                 ).toFixed(2)}</span></h4>
             </div>
-            
+
             `);
   } else {
     $(".total").html("empty items");

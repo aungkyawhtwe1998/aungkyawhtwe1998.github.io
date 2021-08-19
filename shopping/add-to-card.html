@@ -18,9 +18,9 @@
 
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid site-nav">
         <div class="row">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <nav class="navbar rounded navbar-expand-lg navbar-light">
@@ -50,10 +50,12 @@
 
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
+    <div class="container-fluid ">
+        <div class="row justify-content-center mt-5">
             <div class="container m-0 p-0">
                 <div class="row m-0 p-0">
+
+                    <!-- main content -->
                     <div class="col-12 col-lg-9 main">
                         <div class="p-2">
                             <div class="row searchbar">
@@ -61,7 +63,7 @@
                                     <div class="d-flex m-0 p-0 justify-content-between">
                                         <h4 class="text-success">Shopify</h4>
                                         <div class="d-flex">
-                                            <small class="cart-count text-info"></small>
+                                            <small class="d-lg-none cart-count text-info"></small>
                                             <button class="btn btn-outline-info d-block d-lg-none">
                                                 <i class="fas fa-shopping-basket show-side-bar" id=""></i></button>
                                         </div>
@@ -87,6 +89,7 @@
                             <div id="products" class="p-3 row"></div>
                         </div>
                     </div>
+                    <!-- main content -->
 
                     <!-- modal box -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -95,7 +98,7 @@
                             <div class="modal-content p-3">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Select Payment Method</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    <button type="button" class="btn-close modal-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -111,7 +114,7 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
+                                    <button type="button" class="btn btn-secondary modal-close"
                                         data-bs-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-primary">Purchase</button>
                                 </div>
@@ -119,36 +122,40 @@
                         </div>
                     </div>
                     <!-- end modal box -->
+
+                    <!-- side bar -->
                     <div class="col-12 col-md-8 col-lg-3 sidebar">
-                        <div class="d-flex searchbar p-2 justify-content-between">
-                            <div class="">
-                                <button class="btn btn-outline-info d-lg-none hide-side-bar" id=""><i
-                                        class="fas fa-times"></i></button>
+                        <div class="">
+                            <div class="d-flex searchbar p-2 justify-content-between">
+                                <div class="">
+                                    <button class="btn btn-outline-info d-lg-none hide-side-bar" id=""><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <div class="">
+                                    <h4 class="text-success mb-0">My Cart</h4>
+                                    <small class="text-black-50">Added items</small>
+                                </div>
+                                <div class="">
+                                    <h4>
+                                        <span class="item-in-cart-count">0</span>
+                                        <i class="fas fa-shopping-cart text-success"></i>
+                                    </h4>
+                                </div>
                             </div>
-                            <div class="">
-                                <h4 class="text-success mb-0">My Cart</h4>
-                                <small class="text-black-50">Added items</small>
-                            </div>
-                            <div class="">
-                                <h4>
-                                    <span class="item-in-cart-count">0</span>
-                                    <i class="fas fa-shopping-cart text-success"></i>
-                                </h4>
+
+
+                            <div id="cart"></div>
+
+                            <div class="row p-3 position-sticky searchbar rounded " style="bottom:0; top: 0;">
+                                <div class="d-flex flex-column-reverse total py-1">
+                                </div>
+                                <button type=" button"
+                                    class="btn-payment btn btn-outline-info btn btn-outline-info mb-1 position-sticky p-3"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-bs-whatever="@getbootstrap" style="bottom:0; top: 0;">Payment</button>
                             </div>
                         </div>
 
-
-                        <div id="cart"></div>
-
-                        <div class="row p-3">
-                            <div class="d-flex flex-column-reverse position-sticky total py-1"
-                                style="bottom:0; top: 0;">
-                            </div>
-                            <button type=" button"
-                                class="btn-payment btn btn-outline-info btn btn-outline-info mb-1 position-sticky p-3"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
-                                style="bottom:0; top: 0;">Payment</button>
-                        </div>
 
                     </div>
 

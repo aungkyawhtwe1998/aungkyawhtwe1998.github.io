@@ -16,3 +16,8 @@ $(".btn-payment").click(function () {
     marginLeft: "-100%",
   });
 });
+
+$(".modal-close").click(function () {
+  console.log("open");
+  $(".sidebar").animate({ marginLeft: "0" });
+});
