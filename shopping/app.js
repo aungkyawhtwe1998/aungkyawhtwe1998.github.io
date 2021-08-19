@@ -39,13 +39,14 @@ function toShow(x) {
 function cartTotal() {
   let count = $(".item-in-cart-cost").length;
   $(".item-in-cart-count").html(count);
+  $(".cart-count").html(count);
   if (count > 0) {
     let totalCost = $(".item-in-cart-cost")
       .toArray()
       .map((el) => el.innerHTML)
       .reduce((x, y) => Number(x) + Number(y));
     $(".total").html(`
-            <div class="d-flex card justify-content-between font-weight-bold p-3">
+            <div class="d-flex searchbar justify-content-between font-weight-bold p-3">
                 <h4 class="">Total</h4>
                 <h4>$<span class="cart-cost-total">${parseFloat(
                   totalCost

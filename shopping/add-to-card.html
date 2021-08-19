@@ -60,8 +60,10 @@
                                 <div class="col-12 col-lg-6">
                                     <div class="d-flex m-0 p-0 justify-content-between">
                                         <h4 class="text-success">Shopify</h4>
-                                        <button class="btn btn-outline-primary d-block d-lg-none"><i
-                                                class="fas fa-shopping-basket"></i></button>
+                                        <button class="btn btn-outline-info d-block d-lg-none">
+                                            <small class="cart-count"></small>
+                                            <i
+                                                class="fas fa-shopping-basket show-side-bar" id=""></i></button>
                                     </div>
                                     <small class="mb-2">Best Ecommerce platform for you</small>
                                 </div>
@@ -83,26 +85,28 @@
                             <div id="products" class="p-3 row"></div>
                         </div>
                     </div>
-                    <div class="col-lg-3 d-lg-block d-none sidebar">
-                        <div class="row rounded vh-100 mt-3">
-                            <div class="d-flex justify-content-between align-item-end mt-3 mb-3">
-                                <div class="">
-                                    <h4 class="text-success mb-0">My Cart</h4>
-                                    <small class="text-black-50">Added items</small>
-                                </div>
-                                <div class="">
-                                    <h4>
-                                        <span class="item-in-cart-count">0</span>
-                                        <i class="fas fa-shopping-cart text-success"></i>
-                                    </h4>
-                                </div>
+                    <div class="col-12 col-md-8 col-lg-3 vh-100 sidebar">
+                        <div class="d-flex searchbar p-2 justify-content-between">
+                            <div class="">
+                                <button class="btn btn-outline-info d-lg-none hide-side-bar" id=""><i
+                                        class="fas fa-times"></i></button>
                             </div>
-                            <div id="cart">
+                            <div class="">
+                                <h4 class="text-success mb-0">My Cart</h4>
+                                <small class="text-black-50">Added items</small>
+                            </div>
+                            <div class="">
+                                <h4>
+                                    <span class="item-in-cart-count">0</span>
+                                    <i class="fas fa-shopping-cart text-success"></i>
+                                </h4>
+                            </div>
+                        </div>
 
-                            </div>
-                            <div class="total position-sticky py-1" style="bottom: 0; top: 0;">
 
-                            </div>
+                        <div id="cart"></div>
+
+                        <div class="d-flex flex-column-reverse total position-sticky py-1 mb-3" style="bottom: 0;">
                         </div>
                     </div>
                 </div>
@@ -113,6 +117,7 @@
     <script src="../node_modules/js/jquery.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js  "></script>
     <script src="app.js"></script>
+    <script src="dashboard.js"></script>
 
 </body>
 
