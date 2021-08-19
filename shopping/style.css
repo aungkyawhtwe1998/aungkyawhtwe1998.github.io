@@ -118,11 +118,6 @@ body::after {
     background: linear-gradient( to bottom right, rgba(255, 255, 255, 0.774), rgba(242, 242, 242, 0.213)) !important;
 }
 
-.form-control {
-    background-color: transparent;
-    color: var(--color-txt);
-}
-
 .navbar-toggler:focus {
     outline: none;
 }
