@@ -13,26 +13,26 @@ function toShow(x) {
   x.map((product) => {
     $("#products").append(`
     <div class="col-12 col-md-4 col-lg-4">
-    <div class="card p-1 mb-3">
-    <div class="card-body">
-    <img src="${product.image}" alt="" class="rounded">
-        <p class="card-title text-nowrap overflow-hidden text-info font-weight-bold">${toShort(
-          product.title,
-          15
-        )}</p>
-        <small class="">${toShort(String(product.description), 90)}</small>
-        <div class=" d-flex mt-3 justify-content-between align-item-center">
-            <span class="font-weight-bold">${product.price}</span>
-            <button class="btn btn-info btn-sm add-to-cart" data-id = "${
-              product.id
-            }">
-            <i class="fas fa-cart-plus"></i></button>
+      <div class="card p-1 mb-3">
+        <div class="card-body">
+          <img src="${product.image}" alt="" class="rounded">
+          <p class="card-title text-nowrap overflow-hidden text-info font-weight-bold">${toShort(
+            product.title,
+            15
+          )}
+          </p>
+          <small class="">${toShort(String(product.description), 90)}</small>
+          <div class=" d-flex mt-3 justify-content-between align-item-center">
+              <span class="font-weight-bold">${product.price}</span>
+              <button class="btn btn-info btn-sm rounded add-to-cart" data-id = "${
+                product.id
+              }">
+              <i class="fas fa-cart-plus"></i></button>
+          </div>
         </div>
-    </div>
- </div>
-    </div>
-              
-                `);
+      </div>
+    </div>             
+  `);
   });
 }
 

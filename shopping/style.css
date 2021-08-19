@@ -29,7 +29,7 @@
 }
 
 .card .card-title {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .card:hover img {
@@ -87,8 +87,6 @@ body::after {
 .searchbar {
     background: linear-gradient( to bottom right, rgba(255, 255, 255, 0.6), rgba(242, 242, 242, 0.213));
     backdrop-filter: blur(80px);
-    border-top: 1px solid rgba(255, 255, 255, 0.6);
-    border-left: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
     top: 0;
     z-index: 20;
@@ -107,4 +105,12 @@ body::after {
     -moz-filter: blur(1px);
     -webkit-filter: blur(1px);
     -o-filter: blur(1px);
+}
+
+.main {
+    overflow: scroll;
+}
+
+.sidebar {
+    overflow: scroll;
 }
